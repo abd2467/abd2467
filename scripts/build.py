@@ -61,9 +61,9 @@ HELLO = 'say hello'
 W = 1000
 RED = '#E5372D'
 THEMES = {
-    'dark': dict(fg='#ECEBE6', muted='#A3A6AD', label='#C9CCD2', body='#B9BCC2', line='#30333A', sig='#3DDC97',
+    'dark': dict(fg='#ECEBE6', muted='#A3A6AD', label='#C9CCD2', body='#B9BCC2', line='#30333A', sig='#3DDC97', bg='#0D1117',
                  dotE=(130, 130, 140), dotC=(245, 235, 210)),
-    'light': dict(fg='#111317', muted='#5D626B', label='#353940', body='#4B5058', line='#D5D7DB', sig='#0E9F6E',
+    'light': dict(fg='#111317', muted='#5D626B', label='#353940', body='#4B5058', line='#D5D7DB', sig='#0E9F6E', bg='#FFFFFF',
                   dotE=(150, 154, 162), dotC=(17, 19, 23)),
 }
 E = html.escape
@@ -190,10 +190,11 @@ for mode, t in THEMES.items():
         y = 40 + k * 90
         cx0, rx, ry = 120, 110, 22
         out += f'''<g class="sl" style="animation-delay:{k*0.15:.2f}s">
+<path d="M{cx0} {y} H{300}" stroke="{t["muted"]}" stroke-opacity=".6" stroke-width="1"/><circle cx="300" cy="{y}" r="3" fill="{RED}"/>
+<path d="M{cx0-rx} {y} v40 a{rx} {ry} 0 0 0 {2*rx} 0 v-40 z" fill="{t["bg"]}"/><ellipse cx="{cx0}" cy="{y}" rx="{rx}" ry="{ry}" fill="{t["bg"]}"/>
 <path d="M{cx0-rx} {y} v40 a{rx} {ry} 0 0 0 {2*rx} 0 v-40" fill="{t["line"]}" fill-opacity=".35" stroke="{t["line"]}"/>
 <ellipse cx="{cx0}" cy="{y}" rx="{rx}" ry="{ry}" fill="{t["line"]}" fill-opacity=".55" stroke="{RED}" stroke-width="1.5"/>
 <circle cx="{cx0+rx-14}" cy="{y+40}" r="4" fill="{t["sig"]}"/>
-<path d="M{cx0} {y} H{304}" stroke="{t["muted"]}" stroke-opacity=".55" stroke-width="1"/><circle cx="{cx0}" cy="{y}" r="2.5" fill="{t["fg"]}"/>
 <text class="m" x="324" y="{y-10}" font-size="12" fill="{t["muted"]}">{n}  {E(name)}</text>
 <text class="m" x="324" y="{y+10}" font-size="12" fill="{t["label"]}">{E(tools)}</text>
 <text class="d" x="324" y="{y+34}" font-size="16" fill="{t["body"]}" style="font-weight:400">{E(desc)}</text></g>'''
