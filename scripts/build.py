@@ -193,7 +193,7 @@ for mode, t in THEMES.items():
 <path d="M{cx0-rx} {y} v40 a{rx} {ry} 0 0 0 {2*rx} 0 v-40" fill="{t["line"]}" fill-opacity=".35" stroke="{t["line"]}"/>
 <ellipse cx="{cx0}" cy="{y}" rx="{rx}" ry="{ry}" fill="{t["line"]}" fill-opacity=".55" stroke="{RED}" stroke-width="1.5"/>
 <circle cx="{cx0+rx-14}" cy="{y+40}" r="4" fill="{t["sig"]}"/>
-<path d="M{cx0+rx+12} {y} H{300}" stroke="{t["label"]}" stroke-width="1"/><circle cx="300" cy="{y}" r="4" fill="{RED}"/>
+<path d="M{cx0+rx} {y} H{306}" stroke="{RED}" stroke-width="1.5"/><circle cx="{cx0+rx}" cy="{y}" r="3.5" fill="{RED}"/><path d="M306 {y-6} V{y+6}" stroke="{RED}" stroke-width="1.5"/>
 <text class="m" x="324" y="{y-10}" font-size="12" fill="{t["muted"]}">{n}  {E(name)}</text>
 <text class="m" x="324" y="{y+10}" font-size="12" fill="{t["label"]}">{E(tools)}</text>
 <text class="d" x="324" y="{y+34}" font-size="16" fill="{t["body"]}" style="font-weight:400">{E(desc)}</text></g>'''
